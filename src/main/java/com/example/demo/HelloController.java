@@ -1,10 +1,7 @@
 package com.example.demo;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -21,6 +18,12 @@ public class HelloController {
     {
         return "hello"+name;
 
+    }
+
+    @PostMapping("greet")
+    public String greet(@RequestBody GreetingRequest greetingRequest)
+    {
+        return "hello"+greetingRequest.getName();
     }
 
 }
